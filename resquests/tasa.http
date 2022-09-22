@@ -1,0 +1,17 @@
+@api  = http://localhost/api/getProducto
+
+POST {{ api }}
+Content-Type: application/json
+
+{
+  "barcode" : "000015002853"
+}
+
+
+###
+POST {{ api }}
+Content-Type: application/json
+
+{
+  "barcode" : "847610033741"
+}
