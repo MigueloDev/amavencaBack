@@ -59,7 +59,7 @@ const getProduct = async (req, res) => {
   const pool = await getConnection()
 
   let result = await pool.request()
-  .query(`SELECT * FROM Consu_Art WHERE ref like '%${barcode}%'`)
+  .query(`SELECT * FROM Consu_Art WHERE ref = '${barcode}'`)
 
   if(result.recordset.length === 0) {
     //es un producto de la balanza
@@ -72,7 +72,7 @@ const getProduct = async (req, res) => {
       'is_plu' as is_plu,
       '${intWeight}' as int_weight,
       '${decimalWeight}' as decimal_weight
-      FROM Consu_Art WHERE modelo like '%${pluCode}%'
+      FROM Consu_Art WHERE modelo = '${pluCode}'
     `)
 
     if(result.recordset.length === 0) { 
